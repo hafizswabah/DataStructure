@@ -15,6 +15,9 @@ class linkedlist {
     isEmpty() {
         return this.size === 0
     }
+    size(){
+        return this.size
+    }
     preappend(element) {
         const node = new Node(element)
         if (this.isEmpty()) {
@@ -62,7 +65,7 @@ LinkedList.append(10)
 LinkedList.append(20)
 LinkedList.append(30)
 LinkedList.preappend(50)
-
+console.log(LinkedList.size());
 console.log(LinkedList.isEmpty());
 LinkedList.print()
 
