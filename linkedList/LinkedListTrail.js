@@ -71,11 +71,32 @@ class LinkedList {
             }
             deletedNode = prev.next
             prev.next = deletedNode.next
-           
+
         }
         this.size--
         return deletedNode.value
 
+    }
+    deleteElement(value) {
+        if (this.isEmpty()) {
+            return 'list is empty'
+        }
+        if (this.head.value === value) {
+            this.head = this.head.next
+            this.size--
+        } else {
+            let deletedNode
+            let prev = this.head
+            while (prev.next && prev.next.value !== value) {
+                prev = prev.next
+            }
+            if (prev.next) {
+                deletedNode = prev.next
+                prev.next = deletedNode.next
+                this.size--
+            }
+            return 'no such value'
+        }
     }
     print() {
         if (this.isEmpty()) {
@@ -96,8 +117,8 @@ const linkedlist = new LinkedList()
 linkedlist.prepend(10)
 linkedlist.prepend(20)
 linkedlist.append(40)
-linkedlist.insert(25,3)
-linkedlist.delete(2)
+linkedlist.insert(25, 3)
+console.log(linkedlist.deleteElement(40));
 
 linkedlist.print()
 
