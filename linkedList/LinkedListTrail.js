@@ -98,6 +98,21 @@ class LinkedList {
             return 'no such value'
         }
     }
+    search(value) {
+        if (this.isEmpty()) {
+            return 'list is empty'
+        }
+        let i = 0
+        let curr = this.head
+        while (curr) {
+            if (curr.value == value) {
+                return 'value occurs at ' + i + 'th position'
+            }
+            curr = curr.next
+            i++
+        }
+        return 'no such value found'
+    }
     print() {
         if (this.isEmpty()) {
             console.log('empty');
@@ -118,7 +133,8 @@ linkedlist.prepend(10)
 linkedlist.prepend(20)
 linkedlist.append(40)
 linkedlist.insert(25, 3)
-console.log(linkedlist.deleteElement(40));
+console.log(linkedlist.search(280));
+
 
 linkedlist.print()
 
