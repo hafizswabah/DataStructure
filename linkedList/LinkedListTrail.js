@@ -113,6 +113,17 @@ class LinkedList {
         }
         return 'no such value found'
     }
+    reverse() {
+        let curr = this.head
+        let prev = null
+        while (curr) {
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head=prev
+    }
     print() {
         if (this.isEmpty()) {
             console.log('empty');
@@ -133,7 +144,7 @@ linkedlist.prepend(10)
 linkedlist.prepend(20)
 linkedlist.append(40)
 linkedlist.insert(25, 3)
-console.log(linkedlist.search(280));
+linkedlist.reverse()
 
 
 linkedlist.print()
