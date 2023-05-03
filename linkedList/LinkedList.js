@@ -1,24 +1,21 @@
 class Node {
-    constructor(value) {
-        this.value = value
+    constructor(element) {
+        this.value = element
         this.next = null
-
-    } 
-
+    }
 }
-
-class linkedlist {
+class LinkedList {
     constructor() {
-        this.size = 0;
         this.head = null
+        this.size = 0
     }
     isEmpty() {
         return this.size === 0
     }
-    size(){
+    getSize() {
         return this.size
     }
-    preappend(element) {
+    prepend(element) {
         const node = new Node(element)
         if (this.isEmpty()) {
             this.head = node
@@ -33,8 +30,7 @@ class linkedlist {
         const node = new Node(element)
         if (this.isEmpty()) {
             this.head = node
-        }
-        else {
+        } else {
             let curr = this.head
             while (curr.next) {
                 curr = curr.next
@@ -42,30 +38,114 @@ class linkedlist {
             curr.next = node
         }
         this.size++
+    }
+    insert(element, index) {
+        if (index < 0 || this.size < index) {
+            return
+        }
+        if (index == 0) {
+            this.prepend(element)
+        } else {
+            const node = new Node(element)
+            let prev = this.head
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next
+            }
+            node.next = prev.next
+            prev.next = node
+            this.size++
+        }
+    }
+    delete(index) {
+        if (index < 0 || index >= this.size) {
+            return 'Invalid Index'
+        }
+        let deletedNode
+        if (index === 0) {
+            deletedNode = this.head
+            this.head = this.head.next
+        } else {
+            let prev = this.head
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next
+            }
+            deletedNode = prev.next
+            prev.next = deletedNode.next
 
+        }
+        this.size--
+        return deletedNode.value
+
+    }
+    deleteElement(value) {
+        if (this.isEmpty()) {
+            return 'list is empty'
+        }
+        if (this.head.value === value) {
+            this.head = this.head.next
+            this.size--
+        } else {
+            let deletedNode
+            let prev = this.head
+            while (prev.next && prev.next.value !== value) {
+                prev = prev.next
+            }
+            if (prev.next) {
+                deletedNode = prev.next
+                prev.next = deletedNode.next
+                this.size--
+            }
+            return 'no such value'
+        }
+    }
+    search(value) {
+        if (this.isEmpty()) {
+            return 'list is empty'
+        }
+        let i = 0
+        let curr = this.head
+        while (curr) {
+            if (curr.value == value) {
+                return 'value occurs at ' + i + 'th position'
+            }
+            curr = curr.next
+            i++
+        }
+        return 'no such value found'
+    }
+    reverse() {
+        let curr = this.head
+        let prev = null
+        while (curr) {
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head=prev
     }
     print() {
         if (this.isEmpty()) {
             console.log('empty');
         } else {
-            let value = ''
+            const node = new Node()
             let curr = this.head
-
+            let value = ''
             while (curr) {
-                value += curr.value + ' '
+                value += `${curr.value} `
                 curr = curr.next
             }
             console.log(value);
         }
     }
 }
+const linkedlist = new LinkedList()
+linkedlist.prepend(10)
+linkedlist.prepend(20)
+linkedlist.append(40)
+linkedlist.insert(25, 3)
+linkedlist.reverse()
 
-const LinkedList = new linkedlist
-LinkedList.append(10)
-LinkedList.append(20)
-LinkedList.append(30)
-LinkedList.preappend(50)
-console.log(LinkedList.size());
-console.log(LinkedList.isEmpty());
-LinkedList.print()
+
+linkedlist.print()
 
