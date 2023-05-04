@@ -7,7 +7,7 @@ function selectionSort(arr) {
             if (arr[i] > arr[j]) {
                 min = j
             }
-            console.log();
+         
         }
         if(i!=min){
             temp=arr[i]
