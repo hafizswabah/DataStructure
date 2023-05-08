@@ -1,17 +1,23 @@
 class Queue{
-    constructor()
-    {
-        this.items={}
-        this.rear=0
-        this.front=0
+    constructor(){
+        this.item=[]
+    }
+    isEmpty(){
+        this.item.length===0
     }
     enqueue(element){
-        this.items[this.rear]=element
-        this.rear++
+        this.item.push(element)
     }
     dequeue(){
-        const item=this.items[this.front]
-        delete this.items[this.front]
-        this.front++
+        this.item.shift()
+    }
+    print(){
+        console.log(this.item.toString());
     }
 }
+const queue=new Queue()
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+queue.dequeue()
+queue.print()
