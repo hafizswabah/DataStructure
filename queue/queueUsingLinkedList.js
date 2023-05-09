@@ -13,7 +13,7 @@ class Queue {
     empty() {
         return this.size === 0
     }
-    enqueue() {
+    dequeue() {
      
         if (this.empty()) {
             return -1
@@ -32,7 +32,7 @@ class Queue {
         }
         console.log(value);
     }
-    dequeue(data) {
+    enqueue(data) {
         const node = new Node(data)
         if (this.empty()) {
             this.head = node
