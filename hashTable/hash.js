@@ -12,41 +12,18 @@ class HashTable {
     }
     set(key, value) {
         let index = this.hash(key)
+       
         let bucket = this.table[index]
+       
         if (!bucket) {
             this.table[index] = [[key, value]]
         } else {
-            let sameKeyItem = bucket.find(item => {
-                item[0] === key
-            })
+            let sameKeyItem = bucket.find(item => item[0] === key)
+
             if (sameKeyItem) {
                 sameKeyItem[1] = value
-            } else {
-                bucket.push([key, value])
-            }
-        }
-    }
-    get(key) {
-        let index = this.hash(key)
-        let bucket = this.table[index]
-        if (bucket) {
-            let sameKeyItem =bucket.find(item => {
-                item[0] === key
-            })
-            console.log(sameKeyItem);
-            if (sameKeyItem) {
-              return sameKeyItem[1]
-            }
-        }
-       
-    }
-    remove(key) {
-        let index = this.hash(key)
-        let bucket=this.table[index]
-        if(bucket){
-            let sameKeyItem=bucket.find(item=>{item[0]===key})
-            if(sameKeyItem){
-                bucket.splice(bucket.indexOf(sameKeyItem),1)
+            }else{
+                bucket.push([key,value])
             }
         }
     }
@@ -57,10 +34,11 @@ class HashTable {
             }
         }
     }
+
 }
 const hashTable = new HashTable(50)
-hashTable.set("name", "swabah")
+hashTable.set("naem", "swabah")
 hashTable.set("age", "19")
 hashTable.set("name", "fasil")
 hashTable.set("age", "29")
-
+hashTable.display()
