@@ -45,14 +45,32 @@ class Graph {
             this.map.delete(vertex)
         }
     }
+    deapthFirstSearch(start){
+        if(!this.map.has(start)){
+            return 'nothing'
+        }
+        const visited=new Set()
+        const stack=[start]
+        visited.add(start)
+        while(stack.length){
+            let vertex=stack.pop()
+            console.log(vertex);
+            let edges=this.map.get(vertex)
+      
+        for(let item of edges){
+            if(!visited.has(item)){
+                visited.add(item)
+                stack.push(item)
+            }
+        }
+    }
+    }
 }
 let graph = new Graph()
 graph.insert('A', 'B', true)
 graph.insert('B', 'C', true)
 graph.insert('C', 'A', true)
-graph.display()
-graph.delete('A')
-console.log('-----------');
-graph.display()
+
+graph.deapthFirstSearch('A')
 
 
