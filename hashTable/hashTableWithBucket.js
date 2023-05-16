@@ -19,7 +19,6 @@ class HashTable {
             let sameKeyItem = bucket.find((item) => 
                 item[0] === key
             )
-          console.log(sameKeyItem,'sa');
             if (sameKeyItem) {
     
                 sameKeyItem[1] = value
