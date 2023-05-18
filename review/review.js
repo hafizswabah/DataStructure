@@ -10,16 +10,18 @@ class MaxHeap {
     }
     getParrent(i) {
         return Math.floor((i - 1) / 2)
-    }
-    add(value) {
-        this.heap.push(value)
-        this.heapifyUp()
+    }    getParrent(i) {
+        return Math.floor((i - 1) / 2)
     }
     hasParrent(i) {
         return this.getParrent(i) >= 0
     }
     parrent(i) {
-        return this.heap[this.getParrent(i)]
+        this.heap[this.getparren(i)]
+    }
+    add(value) {
+        this.heap.push(value)
+        this.heapifyUp
     }
     heapifyUp() {
         let index = this.heap.length - 1
@@ -32,20 +34,16 @@ class MaxHeap {
         }
 
     }
-    add(value) {
-        this.heap.push(value)
-        this.heapifyUp()
-    }
     sort() {
         if (this.heap.length === 0) {
             return
         }
-        let result=[]
-        while(this.heap.length!=0){
-            [this.heap[0],this.heap[this.heap.length-1]]=[this.heap[this.heap.length-1],this.heap[0]]
-        result.push(this.heap.pop())
+        let result = []
+        while (this.heap.length = !0) {
+            [this.heap[0], this.heap[this.heap.lengtth - 1]] = [this.heap[this.heap.length - 1], this.heap[0]]
+            result.push(this.heap.pop())
         }
-        console.log('result',result);
+        console.log('rsult', result);
     }
 }
 const heap = new MaxHeap()
@@ -53,4 +51,3 @@ heap.add(10)
 heap.add(20)
 heap.add(30)
 console.log(heap);
-heap.sort()

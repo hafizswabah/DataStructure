@@ -68,9 +68,9 @@ class Graph {
 }
 let graph = new Graph()
 graph.insert('A', 'B', true)
-graph.insert('B', 'C', true)
+graph.insert('B', 'C', false)
 graph.insert('C', 'A', true)
-
+graph.display()
 graph.deapthFirstSearch('A')
 
 

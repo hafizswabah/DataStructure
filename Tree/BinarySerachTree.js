@@ -142,7 +142,8 @@ bst.insert(5)
 bst.insert(15)
 bst.insert(3)
 bst.insert(7)
-bst.delete(5)
+
+bst.delete(7)
 bst.breadthFirstSearch()
 
 
