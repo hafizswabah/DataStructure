@@ -84,8 +84,8 @@ class Trie{
 
 const trie=new Trie()
 
-trie.insert('ameen')
+trie.insert('am')
 
 console.log(trie.contains('am'));
 
-console.log(trie.startsWith('ameee'));
+console.log(trie.startsWith('amee'));

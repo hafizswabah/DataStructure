@@ -52,5 +52,6 @@ const heap = new MaxHeap()
 heap.add(10)
 heap.add(20)
 heap.add(30)
+heap.add(40)
 console.log(heap);
 heap.sort()

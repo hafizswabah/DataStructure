@@ -19,4 +19,4 @@ function binarySearch(arr, value, left = 0, right) {
         return binarySearch(arr, value, right = mid - 1, left)
     }
 }
-console.log(binarySearch([1, 2, 3, 5], 1));
+console.log(binarySearch([1, 2, 3, 5], 5));

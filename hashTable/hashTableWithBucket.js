@@ -60,9 +60,10 @@ class HashTable {
     }
 }
 const hashTable = new HashTable(50)
-hashTable.set("naem", "swabah")
+hashTable.set("nmae", "swabah")
 hashTable.set("age", "19")
 hashTable.set("name", "fasil")
+hashTable.set("name", "shijas")
 hashTable.set("age", "29")
 hashTable.display()
 
